@@ -7,6 +7,7 @@
  *
  * Return: number of characters printed, -1 on error
  */
+
 int handle_specifier(char format, va_list args)
 {
 	int count = 0, w;
@@ -16,6 +17,13 @@ int handle_specifier(char format, va_list args)
 	else if (format == 's')
 	{
 		w = print_string(va_arg(args, char *));
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
+	else if (format == 'd' || format == 'i')
+	{
+		w = print_number(va_arg(args, int));
 		if (w == -1)
 			return (-1);
 		count += w;
@@ -36,6 +44,7 @@ int handle_specifier(char format, va_list args)
  *
  * Return: Number of characters printed
  */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
