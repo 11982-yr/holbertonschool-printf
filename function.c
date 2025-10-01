@@ -1,62 +1,75 @@
 #include "main.h"
 
 /**
- * _putchar - Writes a character to stdout
- * @c: Character to print
+ * _putchar - writes a character to stdout
+ * @c: character to print
  *
- * Return: 1 on success
+ * Return: 1 on success, -1 on error
  */
 int _putchar(char c)
 {
-    return (write(1, &c, 1));
+	ssize_t w;
+
+	w = write(1, &c, 1);
+	return (w == 1 ? 1 : -1);
 }
 
 /**
- * print_string - Prints a string
- * @s: String to print
+ * print_string - prints a string
+ * @str: string to print
  *
- * Return: Number of characters printed
+ * Return: number of characters printed, or -1 on error
  */
-int print_string(char *s)
+int print_string(char *str)
 {
-    int count = 0;
+	int count = 0;
 
-    if (s == NULL)
-        s = "(null)";
+	if (str == NULL)
+		str = "(null)";
 
-    while (*s)
-    {
-        count += _putchar(*s);
-        s++;
-    }
-    return (count);
+	while (*str)
+	{
+		if (_putchar(*str) == -1)
+			return (-1);
+		count++;
+		str++;
+	}
+	return (count);
 }
 
 /**
- * print_number - Prints an integer
- * @n: Integer to print
+ * print_number - prints an integer
+ * @n: integer to print
  *
- * Return: Number of characters printed
+ * Return: number of characters printed
  */
 int print_number(int n)
 {
-    int count = 0;
-    unsigned int num;
+	unsigned int num;
+	int count = 0;
 
-    if (n < 0)
-    {
-        count += _putchar('-');
-        num = -n;
-    }
-    else
-    {
-        num = n;
-    }
+	if (n < 0)
+	{
+		if (_putchar('-') == -1)
+			return (-1);
+		count++;
+		num = (unsigned int)(-n);
+	}
+	else
+	{
+		num = (unsigned int)n;
+	}
 
-    if (num / 10)
-        count += print_number(num / 10);
+	if (num / 10)
+	{
+		int w = print_number(num / 10);
 
-    count += _putchar((num % 10) + '0');
-
-    return (count);
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
+	if (_putchar((num % 10) + '0') == -1)
+		return (-1);
+	count++;
+	return (count);
 }
