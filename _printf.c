@@ -1,11 +1,5 @@
 #include "main.h"
 
-/**
- * _printf - Produces output according to a format
- * @format: Format string containing format specifiers
- *
- * Return: Number of characters printed (excluding null byte)
- */
 int _printf(const char *format, ...)
 {
     va_list args;
@@ -22,23 +16,57 @@ int _printf(const char *format, ...)
         {
             format++;
             if (*format == '\0')
+            {
+                va_end(args);
                 return (-1);
+            }
 
             if (*format == 'c')
-                count += _putchar(va_arg(args, int));
+            {
+                if (_putchar(va_arg(args, int)) == -1)
+                {
+                    va_end(args);
+                    return (-1);
+                }
+                count++;
+            }
             else if (*format == 's')
-                count += print_str(va_arg(args, char *));
+            {
+                int w = print_string(va_arg(args, char *));
+                if (w == -1)
+                {
+                    va_end(args);
+                    return (-1);
+                }
+                count += w;
+            }
             else if (*format == '%')
-                count += _putchar('%');
+            {
+                if (_putchar('%') == -1)
+                {
+                    va_end(args);
+                    return (-1);
+                }
+                count++;
+            }
             else
             {
-                count += _putchar('%');
-                count += _putchar(*format);
+                if (_putchar('%') == -1 || _putchar(*format) == -1)
+                {
+                    va_end(args);
+                    return (-1);
+                }
+                count += 2;
             }
         }
         else
         {
-            count += _putchar(*format);
+            if (_putchar(*format) == -1)
+            {
+                va_end(args);
+                return (-1);
+            }
+            count++;
         }
         format++;
     }
