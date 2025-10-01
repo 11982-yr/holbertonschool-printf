@@ -1,76 +1,72 @@
 #include "main.h"
 
+/**
+ * handle_specifier - Handles a format specifier
+ * @format: format character
+ * @args: list of arguments
+ *
+ * Return: number of characters printed, -1 on error
+ */
+int handle_specifier(char format, va_list args)
+{
+	int count = 0, w;
+
+	if (format == 'c')
+		count += _putchar(va_arg(args, int));
+	else if (format == 's')
+	{
+		w = print_string(va_arg(args, char *));
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
+	else if (format == '%')
+		count += _putchar('%');
+	else
+	{
+		count += _putchar('%');
+		count += _putchar(format);
+	}
+	return (count);
+}
+
+/**
+ * _printf - Produces output according to a format
+ * @format: Format string
+ *
+ * Return: Number of characters printed
+ */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    int count = 0;
+	va_list args;
+	int count = 0, w;
 
-    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-        return (-1);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 
-    va_start(args, format);
+	va_start(args, format);
 
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-            if (*format == '\0')
-            {
-                va_end(args);
-                return (-1);
-            }
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '\0')
+				return (-1);
+			w = handle_specifier(*format, args);
+			if (w == -1)
+				return (-1);
+			count += w;
+		}
+		else
+		{
+			if (_putchar(*format) == -1)
+				return (-1);
+			count++;
+		}
+		format++;
+	}
 
-            if (*format == 'c')
-            {
-                if (_putchar(va_arg(args, int)) == -1)
-                {
-                    va_end(args);
-                    return (-1);
-                }
-                count++;
-            }
-            else if (*format == 's')
-            {
-                int w = print_string(va_arg(args, char *));
-                if (w == -1)
-                {
-                    va_end(args);
-                    return (-1);
-                }
-                count += w;
-            }
-            else if (*format == '%')
-            {
-                if (_putchar('%') == -1)
-                {
-                    va_end(args);
-                    return (-1);
-                }
-                count++;
-            }
-            else
-            {
-                if (_putchar('%') == -1 || _putchar(*format) == -1)
-                {
-                    va_end(args);
-                    return (-1);
-                }
-                count += 2;
-            }
-        }
-        else
-        {
-            if (_putchar(*format) == -1)
-            {
-                va_end(args);
-                return (-1);
-            }
-            count++;
-        }
-        format++;
-    }
-
-    va_end(args);
-    return (count);
+	va_end(args);
+	return (count);
 }
