@@ -7,7 +7,6 @@
  *
  * Return: number of characters printed, -1 on error
  */
-
 int handle_specifier(char format, va_list args)
 {
 	int count = 0, w;
@@ -44,7 +43,6 @@ int handle_specifier(char format, va_list args)
  *
  * Return: Number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
