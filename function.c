@@ -8,10 +8,22 @@
  */
 int _putchar(char c)
 {
-	ssize_t w;
+	static char buf[1024];
+	static int i;
+	int w;
 
-	w = write(1, &c, 1);
-	return (w == 1 ? 1 : -1);
+	if (c == -1 || i == 1024)
+	{
+		w = write(1, buf, i);
+		if (w == -1)
+			return (-1);
+		i = 0;
+	}
+
+	if (c != -1)
+		buf[i++] = c;
+
+	return (1);
 }
 
 /**
