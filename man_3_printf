@@ -34,7 +34,7 @@ Print a signed decimal integer.
 .B %i
 Print a signed decimal integer (same as %d).
 
-Other format specifiers are not handled.
+Any unsupported specifier following '%' will be printed literally with the '%' sign.
 
 .SH RETURN VALUE
 Upon success,
@@ -56,3 +56,6 @@ Output: Number: 42, Other: -7
 
 .SH SEE ALSO
 printf(3)
+.SH AUTHORS
+Yara Khalid Alrasheed
+Najla Abdulaziz Alajaleen
