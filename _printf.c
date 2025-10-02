@@ -38,7 +38,7 @@ int handle_specifier(char format, va_list args)
 	}
 	else if (format == 'u')
 	{
-		w = print_unsigned(va_arg(args, unsigned int));
+		w = print_uint(va_arg(args, unsigned int));
 		if (w == -1)
 			return (-1);
 		count += w;
