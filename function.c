@@ -73,3 +73,37 @@ int print_number(int n)
 	count++;
 	return (count);
 }
+/**
+ * print_binary - prints an unsigned int in binary
+ * @n: number to print
+ *
+ * Return: number of characters printed
+ */
+int print_binary(unsigned int n)
+{
+	int count = 0;
+	int started = 0;
+	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
+
+	if (n == 0)
+		return (_putchar('0'));
+
+	while (mask)
+	{
+		if (n & mask)
+		{
+			if (_putchar('1') == -1)
+				return (-1);
+			count++;
+			started = 1;
+		}
+		else if (started)
+		{
+			if (_putchar('0') == -1)
+				return (-1);
+			count++;
+		}
+		mask >>= 1;
+	}
+	return (count);
+}

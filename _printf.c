@@ -29,6 +29,13 @@ int handle_specifier(char format, va_list args)
 	}
 	else if (format == '%')
 		count += _putchar('%');
+	else if (format == 'b')
+	{
+		w = print_binary(va_arg(args, unsigned int));
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
 	else
 	{
 		count += _putchar('%');
