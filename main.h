@@ -6,6 +6,8 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int handle_char_str(char format, va_list args);
+int handle_numbers(char format, va_list args);
 int print_string(char *str);
 int print_number(int n);
 int print_uint(unsigned int n);

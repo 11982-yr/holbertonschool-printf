@@ -9,67 +9,34 @@
  */
 int handle_specifier(char format, va_list args)
 {
-	int count = 0, w;
+	int w = 0;
 
 	if (format == 'c')
-		count += _putchar(va_arg(args, int));
+		w = _putchar(va_arg(args, int));
 	else if (format == 's')
-	{
 		w = print_string(va_arg(args, char *));
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
 	else if (format == 'd' || format == 'i')
-	{
 		w = print_number(va_arg(args, int));
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
-	else if (format == '%')
-		count += _putchar('%');
-	else if (format == 'b')
-	{
-		w = print_binary(va_arg(args, unsigned int));
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
 	else if (format == 'u')
-	{
 		w = print_uint(va_arg(args, unsigned int));
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
 	else if (format == 'o')
-	{
 		w = print_octal(va_arg(args, unsigned int));
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
 	else if (format == 'x')
-	{
 		w = print_hex(va_arg(args, unsigned int), 0);
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
 	else if (format == 'X')
-	{
 		w = print_hex(va_arg(args, unsigned int), 1);
-		if (w == -1)
-			return (-1);
-		count += w;
-	}
+	else if (format == 'b')
+		w = print_binary(va_arg(args, unsigned int));
+	else if (format == '%')
+		w = _putchar('%');
 	else
 	{
-		count += _putchar('%');
-		count += _putchar(format);
+		_putchar('%');
+		_putchar(format);
+		return (2);
 	}
-	return (count);
+
+	return (w);
 }
 
 /**
