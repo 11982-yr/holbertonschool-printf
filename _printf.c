@@ -15,6 +15,8 @@ int handle_specifier(char format, va_list args)
 		w = _putchar(va_arg(args, int));
 	else if (format == 's')
 		w = print_string(va_arg(args, char *));
+	else if (format == 'S')
+		w = print_S(va_arg(args, char *));
 	else if (format == 'd' || format == 'i')
 		w = print_number(va_arg(args, int));
 	else if (format == 'u')

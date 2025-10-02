@@ -119,3 +119,43 @@ int print_binary(unsigned int n)
 	}
 	return (count);
 }
+/**
+ * print_S - prints a string, replacing non-printable chars
+ *           with \x followed by two-digit uppercase hex code
+ * @str: string to print
+ *
+ * Return: number of characters printed, or -1 on error
+ */
+int print_S(char *str)
+{
+	int count = 0, i;
+	unsigned char c;
+	char hex_digits[] = "0123456789ABCDEF";
+
+	if (str == NULL)
+		str = "(null)";
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		c = (unsigned char)str[i];
+		if ((c > 0 && c < 32) || c >= 127)
+		{
+			if (_putchar('\\') == -1 || _putchar('x') == -1)
+				return (-1);
+			count += 2;
+
+			if (_putchar(hex_digits[c / 16]) == -1)
+				return (-1);
+			if (_putchar(hex_digits[c % 16]) == -1)
+				return (-1);
+			count += 2;
+		}
+		else
+		{
+			if (_putchar(c) == -1)
+				return (-1);
+			count++;
+		}
+	}
+	return (count);
+}
