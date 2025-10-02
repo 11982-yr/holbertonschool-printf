@@ -36,6 +36,34 @@ int handle_specifier(char format, va_list args)
 			return (-1);
 		count += w;
 	}
+	else if (format == 'u')
+	{
+		w = print_unsigned(va_arg(args, unsigned int));
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
+	else if (format == 'o')
+	{
+		w = print_octal(va_arg(args, unsigned int));
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
+	else if (format == 'x')
+	{
+		w = print_hex(va_arg(args, unsigned int), 0);
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
+	else if (format == 'X')
+	{
+		w = print_hex(va_arg(args, unsigned int), 1);
+		if (w == -1)
+			return (-1);
+		count += w;
+	}
 	else
 	{
 		count += _putchar('%');
