@@ -5,7 +5,7 @@ A minimal re-implementation of `printf` that supports `%c`, `%s`, and `%%`.
 ## Prototype
 ```c
 int _printf(const char *format, ...);
-
+```
 ## Description
 
 The **_printf** project is a custom implementation of the C standard library function `printf`.
@@ -40,11 +40,11 @@ On error, it returns `-1`.
 ### Example Usage
 ```c
 _printf("Hello %s! Number: %d%%\n", "Yara and Najlaa", 42);
-
+```
 - **Output**
 ```c 
 Hello Yara and Najlaa! Number: 42%
-
+```
 ### Authors
 Yara Khalid Alrasheed
 Najlaa Abdulaziz Alajaleen
