@@ -56,6 +56,12 @@ Output: Number: 42, Other: -7
 
 .SH SEE ALSO
 printf(3)
+
+.SH NOTES
+This implementation of _printf does not handle field width,
+precision, flags, or length modifiers. Only the conversion
+specifiers documented above are supported.
+
 .SH AUTHORS
 Yara Khalid Alrasheed
 Najlaa Abdulaziz Alajaleen
