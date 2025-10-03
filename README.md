@@ -46,6 +46,5 @@ _printf("Hello %s! Number: %d%%\n", "Yara and Najlaa", 42);
 Hello Yara and Najlaa! Number: 42%
 ```
 ### Authors
-Yara Khalid Alrasheed
-Najlaa Abdulaziz Alajaleen
+Yara Khalid Alrasheed & Najlaa Abdulaziz Alajaleen
 
