@@ -53,7 +53,7 @@ _printf("First letter: %c\n", 'A');
 _printf("Hello %s! Number: %d%%\n", "Yara and Najlaa", 42);
 _printf("Binary: %b\n", 42);
 _printf("Unsigned/Octal: %u | %o\n", 1024, 255);
-_printf("Hex: %x | %X\n", 48879, 48879);
+_printf("Hex: %x | %X\n", 255, 255);
 ```
 - **Output**
 ```c 
@@ -61,7 +61,7 @@ First letter: A
 Hello Yara and Najlaa! Number: 42%
 Binary: 101010
 Unsigned/Octal: 1024 | 377
-Hex: beef | BEEF
+Hex: ff | FF
 ```
 ### Authors
 Yara Khalid Alrasheed & Najlaa Abdulaziz Alajaleen
