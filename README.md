@@ -41,7 +41,7 @@ It does **not** handle field width, precision, flags, or length modifiers.
 
 - `%X` : Prints an unsigned integer in uppercase hexadecimal (base 16)
 
-- `%S` : Prints a string, but non-printable characters (ASCII value < 32 or ≥ 127) are displayed as \xHHwhere HH is the uppercase hexadecimal code of the character.
+- `%S` : Prints a string, but non-printable characters (ASCII value < 32 or ≥ 127) are displayed as \xHH where **HH** is the uppercase hexadecimal code of the character.
 
 - `%p` : Prints a pointer (memory address) in hexadecimal format, prefixed with 0x. A null pointer is printed as (nil).
 
