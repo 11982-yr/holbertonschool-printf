@@ -57,7 +57,6 @@ Prints a string. Non-printable characters
 .B \xHH
 where HH is the uppercase hexadecimal value.
 
-
 Any unsupported specifier following '%' will be printed literally with the '%' sign.
 
 .SH RETURN VALUE
@@ -83,6 +82,9 @@ Output: Binary: 111
 _printf("Unsigned: %u | Octal: %o\\n", 50, 50);
 Output: Unsigned: 50 | Octal: 62
 .EE
+
+_printf("Best\\nSchool: %S\\n", "Best\nSchool");
+Output: Best\x0ASchool
 
 .SH SEE ALSO
 printf(3)
