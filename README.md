@@ -54,17 +54,17 @@ On error, it returns `-1`.
 ### Example Usage
 ```c
 _printf("First letter: %c\n", 'A');
-_printf("Hello %s! Number: %d%%\n", "Yara and Najlaa", 42);
+_printf("Hello %s! Number: %d%%\n", "Yara and Najla", 42);
 _printf("Binary: %b\n", 42);
 _printf("Unsigned/Octal: %u | %o\n", 1024, 255);
 _printf("Hex: %x | %X\n", 255, 255);
-_printf("%S\\n", "Best\\nSchool");
-_printf("Pointer: %p\\n", (void *)0x7ffe637541f0);
+_printf("%S\n", "Best\nSchool");
+_printf("Pointer: %p\n", (void *)0x7ffe637541f0);
 ```
 - **Output**
 ```c 
 First letter: A
-Hello Yara and Najlaa! Number: 42%
+Hello Yara and Najla! Number: 42%
 Binary: 101010
 Unsigned/Octal: 1024 | 377
 Hex: ff | FF

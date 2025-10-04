@@ -99,10 +99,9 @@ _printf("Hex uppercase: %X\\n", 48879u);
 Output: Hex uppercase: BEEF
 
 _printf("%S\\n", "Best\nSchool");
-Output: Best\\x0ASchool
+Output: Best\x0ASchool
 
-int *ptr = (int *)0x7ffe637541f0;
-_printf("Pointer: %p\\n", ptr);
+_printf("Pointer: %p\\n", (void *)0x7ffe637541f0);
 Output: Pointer: 0x7ffe637541f0
 
 _printf("Null pointer: %p\\n", NULL);
