@@ -12,7 +12,7 @@ function produces output according to a format string.
 The format string is composed of zero or more characters,
 and directives introduced by the '%' character.
 
-This version supports the following conversion specifiers:
+This implementation supports the following conversion specifiers:
 
 .TP
 .B %c
@@ -51,8 +51,8 @@ Prints an unsigned integer in octal (base 8).
 Prints an unsigned integer in lowercase hexadecimal (base 16).
 
 .TP
-.B %x
-Prints an unsigned integer in lowercase hexadecimal (base 16).
+.B %X
+Prints an unsigned integer in uppercase hexadecimal (base 16).
 
 .TP
 .B %S
@@ -66,7 +66,8 @@ where HH is the uppercase hexadecimal value.
 Prints a pointer (memory address) in hexadecimal (base 16).
 A null pointer is printed as (nil).
 
-Any unsupported specifier following '%' will be printed literally with the '%' sign.
+Any unsupported specifier following '%' will be printed literally
+together with the '%' sign.
 
 .SH RETURN VALUE
 Upon success,
@@ -90,10 +91,12 @@ Output: Binary: 111
 
 _printf("Unsigned: %u | Octal: %o\\n", 50, 50);
 Output: Unsigned: 50 | Octal: 62
-.EE
 
-_printf("Hex lowercase: %x | uppercase: %X\\n", 48879u, 48879u);
-Output: Hex lowercase: beef | uppercase: BEEF
+_printf("Hex lowercase: %x\\n", 48879u);
+Output: Hex lowercase: beef
+
+_printf("Hex uppercase: %X\\n", 48879u);
+Output: Hex uppercase: BEEF
 
 _printf("Best\\nSchool: %S\\n", "Best\nSchool");
 Output: Best\x0ASchool
@@ -104,14 +107,15 @@ Output: Pointer: 0x7ffe637541f0
 
 _printf("Null pointer: %p\\n", NULL);
 Output: Null pointer: (nil)
+.EE
 
 .SH SEE ALSO
 printf(3)
 
 .SH NOTES
 This implementation of _printf does not handle field width,
-precision, flags, or length modifiers. Only the conversion
-specifiers documented above are supported.
+precision, flags, or length modifiers.
+Only the conversion specifiers documented above are supported.
 
 .SH AUTHORS
 Yara Khalid Alrasheed
