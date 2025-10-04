@@ -50,6 +50,14 @@ Prints an unsigned integer in octal (base 8).
 .B %x
 Prints an unsigned integer in lowercase hexadecimal (base 16).
 
+.TP
+.B %S
+Prints a string. Non-printable characters
+(ASCII < 32 or >= 127) are shown as
+.B \xHH
+where HH is the uppercase hexadecimal value.
+
+
 Any unsupported specifier following '%' will be printed literally with the '%' sign.
 
 .SH RETURN VALUE
