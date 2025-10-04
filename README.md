@@ -86,9 +86,9 @@ Pointer: 0x7ffe637541f0
 ```
 
 ### Compilation
-To compile all source files and generate an executable:
-```c
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf
+The code will be compiled this way:
+```bash
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
 
 ### Authors
