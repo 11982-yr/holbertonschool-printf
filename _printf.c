@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * handle_specifier - Handles a format specifier
  * @format: format character
@@ -24,11 +25,13 @@ int handle_specifier(char format, va_list args)
 	else if (format == 'o')
 		w = print_octal(va_arg(args, unsigned int));
 	else if (format == 'x')
-		w = print_hex(va_arg(args, unsigned int), 0);
+		w = print_hex((unsigned long)va_arg(args, unsigned int), 0);
 	else if (format == 'X')
-		w = print_hex(va_arg(args, unsigned int), 1);
+		w = print_hex((unsigned long)va_arg(args, unsigned int), 1);
 	else if (format == 'b')
 		w = print_binary(va_arg(args, unsigned int));
+	else if (format == 'p')
+		w = print_pointer(va_arg(args, void *));
 	else if (format == '%')
 		w = _putchar('%');
 	else

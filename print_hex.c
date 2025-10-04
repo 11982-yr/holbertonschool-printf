@@ -7,7 +7,7 @@
  *
  * Return: number of characters printed
  */
-int print_hex(unsigned int n, int uppercase)
+int print_hex(unsigned long n, int uppercase)
 {
 	int count = 0;
 	char *digits;
@@ -22,4 +22,3 @@ int print_hex(unsigned int n, int uppercase)
 
 	return (count + 1);
 }
-

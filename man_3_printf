@@ -34,6 +34,22 @@ Print a signed decimal integer.
 .B %i
 Print a signed decimal integer (same as %d).
 
+.TP
+.B %b
+Print an unsigned integer in binary (base 2).
+
+.TP
+.B %u
+Print an unsigned decimal integer.
+
+.TP
+.B %o
+Print an unsigned integer in octal (base 8).
+
+.TP
+.B %x
+Print an unsigned integer in lowercase hexadecimal.
+
 Any unsupported specifier following '%' will be printed literally with the '%' sign.
 
 .SH RETURN VALUE
@@ -52,6 +68,13 @@ Output: Grade: A%
 
 _printf("Number: %d, Other: %i\\n", 42, -7);
 Output: Number: 42, Other: -7
+
+_printf("Binary: %b\\n", 7);
+Output: Binary: 111
+
+_printf("Unsigned: %u | Octal: %o\n", 77, 50);
+Output: Unsigned: 77 | Octal: 62
+
 .EE
 
 .SH SEE ALSO

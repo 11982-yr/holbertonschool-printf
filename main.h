@@ -12,8 +12,9 @@ int print_string(char *str);
 int print_number(int n);
 int print_uint(unsigned int n);
 int print_octal(unsigned int n);
-int print_hex(unsigned int n, int uppercase);
+int print_hex(unsigned long n, int uppercase);
 int print_binary(unsigned int n);
 int print_S(char *str);
+int print_pointer(void *ptr);
 
 #endif /* MAIN_H */
