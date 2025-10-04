@@ -45,6 +45,20 @@ It does **not** handle field width, precision, flags, or length modifiers.
 
 - `%p` : Prints a pointer (memory address) in hexadecimal format, prefixed with 0x. A null pointer is printed as (nil).
 
+### Unsupported Specifiers
+
+If an unsupported specifier is encountered after %,
+_printf prints both the % sign and the unknown specifier literally.
+
+**For Example**
+```c
+_printf("Unknown specifier: %r\n");
+```
+**Output**
+```c
+Unknown specifier: %r
+```
+
 ### Return Value
 
 On success, `_printf` returns the number of characters printed (excluding the null byte).
@@ -70,6 +84,13 @@ Hex: ff | FF
 Best\x0ASchool
 Pointer: 0x7ffe637541f0
 ```
+
+### Compilation
+To compile all source files and generate an executable:
+```c
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf
+```
+
 ### Authors
 Yara Khalid Alrasheed & Najla Abdulaziz Alajaleen
 
