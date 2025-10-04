@@ -42,6 +42,10 @@ It does **not** handle field width, precision, flags, or length modifiers.
 
 - `%X` : Prints an unsigned integer in uppercase hexadecimal (base 16)
 
+- `%S` : Prints a string, but non-printable characters (ASCII value < 32 or ≥ 127) are displayed as \xHHwhere HH is the uppercase hexadecimal code of the character.
+
+- `%p` : Prints a pointer (memory address) in hexadecimal format, prefixed with 0x. A null pointer is printed as (nil).
+
 ### Return Value
 
 On success, `_printf` returns the number of characters printed (excluding the null byte).
@@ -54,6 +58,8 @@ _printf("Hello %s! Number: %d%%\n", "Yara and Najlaa", 42);
 _printf("Binary: %b\n", 42);
 _printf("Unsigned/Octal: %u | %o\n", 1024, 255);
 _printf("Hex: %x | %X\n", 255, 255);
+_printf("%S\\n", "Best\\nSchool");
+_printf("Pointer: %p\\n", (void *)0x7ffe637541f0);
 ```
 - **Output**
 ```c 
@@ -62,8 +68,10 @@ Hello Yara and Najlaa! Number: 42%
 Binary: 101010
 Unsigned/Octal: 1024 | 377
 Hex: ff | FF
+Best\x0ASchool
+Pointer: 0x7ffe637541f0
 ```
 ### Authors
-Yara Khalid Alrasheed & Najlaa Abdulaziz Alajaleen
+Yara Khalid Alrasheed & Najla Abdulaziz Alajaleen
 
 
