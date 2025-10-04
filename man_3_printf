@@ -51,6 +51,10 @@ Prints an unsigned integer in octal (base 8).
 Prints an unsigned integer in lowercase hexadecimal (base 16).
 
 .TP
+.B %x
+Prints an unsigned integer in lowercase hexadecimal (base 16).
+
+.TP
 .B %S
 Prints a string. Non-printable characters
 (ASCII < 32 or >= 127) are shown as
@@ -82,6 +86,10 @@ Output: Binary: 111
 _printf("Unsigned: %u | Octal: %o\\n", 50, 50);
 Output: Unsigned: 50 | Octal: 62
 .EE
+
+_printf("Hex lowercase: %x | uppercase: %X\\n", 48879u, 48879u);
+Output: Hex lowercase: beef | uppercase: BEEF
+
 
 _printf("Best\\nSchool: %S\\n", "Best\nSchool");
 Output: Best\x0ASchool
