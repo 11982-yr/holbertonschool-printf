@@ -61,6 +61,11 @@ Prints a string. Non-printable characters
 .B \xHH
 where HH is the uppercase hexadecimal value.
 
+.TP
+.B %p
+Prints a pointer (memory address) in hexadecimal (base 16).
+A null pointer is printed as (nil).
+
 Any unsupported specifier following '%' will be printed literally with the '%' sign.
 
 .SH RETURN VALUE
@@ -90,9 +95,15 @@ Output: Unsigned: 50 | Octal: 62
 _printf("Hex lowercase: %x | uppercase: %X\\n", 48879u, 48879u);
 Output: Hex lowercase: beef | uppercase: BEEF
 
-
 _printf("Best\\nSchool: %S\\n", "Best\nSchool");
 Output: Best\x0ASchool
+
+int *ptr = (int *)0x7ffe637541f0;
+_printf("Pointer: %p\\n", ptr);
+Output: Pointer: 0x7ffe637541f0
+
+_printf("Null pointer: %p\\n", NULL);
+Output: Null pointer: (nil)
 
 .SH SEE ALSO
 printf(3)
