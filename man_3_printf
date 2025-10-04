@@ -16,39 +16,39 @@ This version supports the following conversion specifiers:
 
 .TP
 .B %c
-Print a single character.
+Prints a single character.
 
 .TP
 .B %s
-Print a string. If the string is NULL, the text "(null)" is printed.
+Prints a string. If the string is NULL, the text "(null)" is printed.
 
 .TP
 .B %%
-Print a literal percent sign.
+Prints a literal percent sign.
 
 .TP
 .B %d
-Print a signed decimal integer.
+Prints a signed decimal integer.
 
 .TP
 .B %i
-Print a signed decimal integer (same as %d).
+Prints a signed decimal integer (same as %d).
 
 .TP
 .B %b
-Print an unsigned integer in binary (base 2).
+Prints an unsigned integer in binary (base 2).
 
 .TP
 .B %u
-Print an unsigned decimal integer.
+Prints an unsigned decimal integer.
 
 .TP
 .B %o
-Print an unsigned integer in octal (base 8).
+Prints an unsigned integer in octal (base 8).
 
 .TP
 .B %x
-Print an unsigned integer in lowercase hexadecimal.
+Prints an unsigned integer in lowercase hexadecimal (base 16).
 
 Any unsupported specifier following '%' will be printed literally with the '%' sign.
 
@@ -72,9 +72,8 @@ Output: Number: 42, Other: -7
 _printf("Binary: %b\\n", 7);
 Output: Binary: 111
 
-_printf("Unsigned: %u | Octal: %o\n", 77, 50);
-Output: Unsigned: 77 | Octal: 62
-
+_printf("Unsigned: %u | Octal: %o\n", 50, 50);
+Output: Unsigned: 50 | Octal: 62
 .EE
 
 .SH SEE ALSO

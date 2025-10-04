@@ -38,9 +38,9 @@ It does **not** handle field width, precision, flags, or length modifiers.
 
 - `%o` : Prints an unsigned integer in octal (base 8)
 
-- `%x` : Print an unsigned integer in lowercase hexadecimal
+- `%x` : Prints an unsigned integer in lowercase hexadecimal
 
-- `%X` : Print an unsigned integer in uppercase hexadecimal
+- `%X` : Prints an unsigned integer in uppercase hexadecimal
 
 ### Return Value
 
