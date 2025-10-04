@@ -72,7 +72,7 @@ Output: Number: 42, Other: -7
 _printf("Binary: %b\\n", 7);
 Output: Binary: 111
 
-_printf("Unsigned: %u | Octal: %o\n", 50, 50);
+_printf("Unsigned: %u | Octal: %o\\n", 50, 50);
 Output: Unsigned: 50 | Octal: 62
 .EE
 
